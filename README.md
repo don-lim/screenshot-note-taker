@@ -1,7 +1,7 @@
 # Screenshot Note Taker - Searchable Screenshot Database
 
 ## Overview
-AI-powered searchable database for your screenshots using local OCR and semantic search without any subscriptin of the internet connection. Process screenshots with multi-language text support, generate AI descriptions, and search your activities using natural language queries.
+AI-powered searchable database for your screenshots using local OCR and semantic search without any subscription or the internet connection. This program is similar to Recall feature of Copilot+ PCs. Process screenshots with multi-language text support, generate AI descriptions, and search your activities using natural language queries.
 
 ## Key Features
 - **🔍 Advanced OCR**: PaddleOCR (CPU mode) for English (+ Korean in this version) text extraction
@@ -121,7 +121,7 @@ POSTGRES_PASSWORD=screp235@#!^
 # Ollama Configuration
 LOCAL_LLM_API_URL=http://localhost:11434
 LOCAL_LLM_PROVIDER=ollama
-LOCAL_LLM_MODEL=qwen3-vl:4b-gpu-only
+LOCAL_LLM_MODEL=qwen3-vl-4b-gpu-only
 LOCAL_TOKENIZER_MODEL=bge-m3:latest
 ```
 
@@ -185,7 +185,7 @@ python auto_processor_service.py
 ```
 
 **Features:**
-- 👀 Watches `C:\Users\user\Pictures\Screenshots` for new files
+- 👀 Watches `C:\Users\user\Pictures\Screenshots` for new files (Change this to your screenshot path)
 - ⚡ Automatically processes new screenshots
 - 📊 Shows processing status with reasons
 - 🔄 Runs continuously until stopped (Ctrl+C)
