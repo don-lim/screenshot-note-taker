@@ -1,10 +1,10 @@
 # Screenshot Note Taker - Searchable Screenshot Database
 
 ## Overview
-AI-powered searchable database for your screenshots using local OCR and semantic search. Process screenshots with Korean and English text support, generate AI descriptions, and search your activities using natural language queries.
+AI-powered searchable database for your screenshots using local OCR and semantic search without any subscriptin of the internet connection. Process screenshots with multi-language text support, generate AI descriptions, and search your activities using natural language queries.
 
 ## Key Features
-- **🔍 Advanced OCR**: PaddleOCR (CPU mode) for Korean + English text extraction
+- **🔍 Advanced OCR**: PaddleOCR (CPU mode) for English (+ Korean in this version) text extraction
 - **🧠 Semantic Search**: bge-m3 embeddings (1024-dim) via Ollama for multilingual semantic understanding
 - **🤖 AI Vision**: Qwen3-VL for intelligent screenshot descriptions
 - **💾 PostgreSQL Storage**: Local database with pgvector for similarity search
@@ -44,7 +44,7 @@ screenshot-note-taker/
 - **Ollama** with models installed:
   - `qwen3-vl:4b` (vision model)
   - `bge-m3:latest` (embeddings)
-- **NVIDIA GPU** recommended for Ollama (RTX 5060 Ti or better)
+- **NVIDIA GPU** recommended for Ollama (RTX 5060 Ti or similar GPU with CUDA cores)
 - **16GB RAM** minimum
 
 ### 2. Install Ollama Models
