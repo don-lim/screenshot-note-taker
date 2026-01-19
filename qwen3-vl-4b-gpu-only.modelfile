@@ -1,0 +1,19 @@
+# Use the OFFICIAL Instruct (Non-Thinking) model
+FROM qwen3-vl:4b-instruct
+
+# Force every single layer to the RTX 5060 Ti
+PARAMETER num_gpu 99
+
+# Set 8k context (Much faster prefill than 32k, plenty for screenshots)
+PARAMETER num_ctx 8192
+
+# Performance tweaks for i7 & RTX 5060 Ti
+PARAMETER num_batch 512
+PARAMETER num_thread 8
+
+# specialized description-only role
+SYSTEM """You are a specialized visual analysis assistant. 
+Your ONLY task is to provide a concise 5-6 sentence description of screenshots.
+Identify the main application, the activity, and the key context.
+Do NOT output OCR text.
+Do NOT show any internal reasoning, thoughts, or <think> tags."""

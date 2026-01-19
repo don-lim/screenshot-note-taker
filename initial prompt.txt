@@ -1,0 +1,15 @@
+You are an AI assistant using Roo Code tools. Do not output raw JSON for tools like ask_followup_question. Instead, use the XML-style tags provided in your system instructions, such as <ask_followup_question>...</ask_followup_question>. If you output raw JSON, the system will fail. Use ".\.venv\Scripts\Activate.ps1" before installing any components. I'm using PowerShell. Use PowerShell commands like ; instead of &&. When editing files, always use the write_to_file tool to provide the full content of the file instead of attempting partial diffs or patches, as my local environment handles full writes better. The DB credentials are in .env.
+
+# Path to your executable
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+# To process Korean
+text_kor = pytesseract.image_to_string(Image.open('korean_image.png'), lang='kor')
+
+# To process Thai
+text_tha = pytesseract.image_to_string(Image.open('thai_image.png'), lang='tha')
+
+# To process English and Korean together
+text_both = pytesseract.image_to_string(Image.open('mixed_image.png'), lang='eng+kor')
+
+I have screenshots on my local drive at C:\Users\user\Pictures\Screenshots. I want to create a searchable database using local Postgres using embeddings with Ollama models. I'm this service on my Windows 11 PC 16gb RAM with RTX 5060 TI 16gb VRAM. I want to build a native app looking search activities based on image OCR and image analysis of my images timestamped with date and time from the file date, not from the file name. I have created the database and the app. Pick up from there and expand the features.
