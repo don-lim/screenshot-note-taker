@@ -115,8 +115,8 @@ Create `.env` file with:
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
 POSTGRES_DB=image_search_db
-POSTGRES_USER=screuser235
-POSTGRES_PASSWORD=screp235@#!^
+POSTGRES_USER=your_username
+POSTGRES_PASSWORD=your_password
 
 # Ollama Configuration
 LOCAL_LLM_API_URL=http://localhost:11434
