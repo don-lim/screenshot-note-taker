@@ -7,6 +7,8 @@ import ollama
 import unicodedata
 import threading
 import time
+import subprocess
+import sys
 
 # Temporary directory for Flet to serve images from
 ASSETS_DIR = "assets"
@@ -197,6 +199,36 @@ def main(page: ft.Page):
         page.overlay.append(sb)
         sb.open = True
         page.update()
+
+    def launch_batch_processor(e):
+        """Launch the batch processor script in a new terminal window"""
+        try:
+            script_path = os.path.join(os.path.dirname(__file__), "batch_processor.py")
+            venv_python = os.path.join(os.path.dirname(__file__), ".venv", "Scripts", "python.exe")
+            
+            # Launch in a new console window
+            subprocess.Popen(
+                [venv_python, script_path],
+                creationflags=subprocess.CREATE_NEW_CONSOLE
+            )
+            show_toast("Batch Processor launched in new window", "#10B981")
+        except Exception as ex:
+            show_toast(f"Failed to launch: {str(ex)}", "#EF4444")
+    
+    def launch_auto_processor(e):
+        """Launch the auto processor service in a new terminal window"""
+        try:
+            script_path = os.path.join(os.path.dirname(__file__), "auto_processor_service.py")
+            venv_python = os.path.join(os.path.dirname(__file__), ".venv", "Scripts", "python.exe")
+            
+            # Launch in a new console window
+            subprocess.Popen(
+                [venv_python, script_path],
+                creationflags=subprocess.CREATE_NEW_CONSOLE
+            )
+            show_toast("Auto Processor Service launched in new window", "#10B981")
+        except Exception as ex:
+            show_toast(f"Failed to launch: {str(ex)}", "#EF4444")
 
     def do_search(query):
         if not query:
@@ -467,7 +499,29 @@ def main(page: ft.Page):
             ft.Text("Find anything you've seen before", size=14, color=TEXT_SECONDARY),
         ], spacing=0),
         ft.Container(expand=True),
-        loading_banner
+        ft.Row([
+            ft.ElevatedButton(
+                "Batch Processor",
+                icon=ft.icons.Icons.BATCH_PREDICTION,
+                style=ft.ButtonStyle(
+                    color=TEXT_PRIMARY,
+                    bgcolor="#6366F1",
+                    shape=ft.RoundedRectangleBorder(radius=8),
+                ),
+                on_click=launch_batch_processor
+            ),
+            ft.ElevatedButton(
+                "Background Screenshot Detection",
+                icon=ft.icons.Icons.AUTO_MODE,
+                style=ft.ButtonStyle(
+                    color=TEXT_PRIMARY,
+                    bgcolor="#10B981",
+                    shape=ft.RoundedRectangleBorder(radius=8),
+                ),
+                on_click=launch_auto_processor
+            ),
+            loading_banner
+        ], spacing=10)
     ], alignment="center")
 
     page.add(

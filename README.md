@@ -115,13 +115,13 @@ Create `.env` file with:
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
 POSTGRES_DB=image_search_db
-POSTGRES_USER=screuser235
-POSTGRES_PASSWORD=screp235@#!^
+POSTGRES_USER=user_name
+POSTGRES_PASSWORD=user_password
 
 # Ollama Configuration
 LOCAL_LLM_API_URL=http://localhost:11434
 LOCAL_LLM_PROVIDER=ollama
-LOCAL_LLM_MODEL=qwen3-vl:4b-gpu-only
+LOCAL_LLM_MODEL=qwen3-vl-4b-gpu-only
 LOCAL_TOKENIZER_MODEL=bge-m3:latest
 ```
 
