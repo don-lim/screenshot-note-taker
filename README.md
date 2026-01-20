@@ -1,10 +1,10 @@
 # Screenshot Note Taker - Searchable Screenshot Database
 
 ## Overview
-AI-powered searchable database for your screenshots using local OCR and semantic search. Process screenshots with Korean and English text support, generate AI descriptions, and search your activities using natural language queries.
+AI-powered searchable database for your screenshots using local OCR and semantic search without any subscription or the internet connection. This program is similar to Recall feature of Copilot+ PCs. Process screenshots with multi-language text support, generate AI descriptions, and search your activities using natural language queries.
 
 ## Key Features
-- **🔍 Advanced OCR**: PaddleOCR (CPU mode) for Korean + English text extraction
+- **🔍 Advanced OCR**: PaddleOCR (CPU mode) for English (+ Korean in this version) text extraction
 - **🧠 Semantic Search**: bge-m3 embeddings (1024-dim) via Ollama for multilingual semantic understanding
 - **🤖 AI Vision**: Qwen3-VL for intelligent screenshot descriptions
 - **💾 PostgreSQL Storage**: Local database with pgvector for similarity search
@@ -44,7 +44,7 @@ screenshot-note-taker/
 - **Ollama** with models installed:
   - `qwen3-vl:4b` (vision model)
   - `bge-m3:latest` (embeddings)
-- **NVIDIA GPU** recommended for Ollama (RTX 5060 Ti or better)
+- **NVIDIA GPU** recommended for Ollama (RTX 5060 Ti or similar GPU with CUDA cores)
 - **16GB RAM** minimum
 
 ### 2. Install Ollama Models
@@ -115,8 +115,13 @@ Create `.env` file with:
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
 POSTGRES_DB=image_search_db
+<<<<<<< HEAD
 POSTGRES_USER=user_name
 POSTGRES_PASSWORD=user_password
+=======
+POSTGRES_USER=your_username
+POSTGRES_PASSWORD=your_password
+>>>>>>> 0e47ec0eabfc56962ad11f86ea9db3ca2dfcc680
 
 # Ollama Configuration
 LOCAL_LLM_API_URL=http://localhost:11434
@@ -185,7 +190,7 @@ python auto_processor_service.py
 ```
 
 **Features:**
-- 👀 Watches `C:\Users\user\Pictures\Screenshots` for new files
+- 👀 Watches `C:\Users\user\Pictures\Screenshots` for new files (Change this to your screenshot path)
 - ⚡ Automatically processes new screenshots
 - 📊 Shows processing status with reasons
 - 🔄 Runs continuously until stopped (Ctrl+C)
