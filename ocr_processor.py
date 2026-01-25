@@ -190,9 +190,10 @@ def get_ai_description(image_path: str) -> Tuple[str, str]:
             
         # 2. Optimized Description Prompt
         prompt = (
-            "Describe this screenshot in 3-5 concise sentences. "
-            "Identify the main application(s) shown and the user's primary activity. "
-            "Be specific about the content. Include important text content up to 100 words."
+            "Provide a clear and professional summary of this screenshot in 8-10 sentences as well as texts up to 100 words. "
+            "Identify the primary application(s) visible and describe the user’s main activity. "
+            "Highlight key on-screen content with specificity. "
+            "Ensure the description is accurate, concise, and contextually informative."
         )
         
         response_stream = ollama.chat(
